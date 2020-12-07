@@ -3,9 +3,10 @@ var btnTranslate = document.querySelector('#btn-translate');
 var outputDiv = document.querySelector('#txt-output');
 
 var serverURL = "https://api.funtranslations.com/translate/valyrian.json";
+var encodedURL = encodeURI(serverURL);
 
 function getTranslationURL(text) {
-    return serverURL + "?" + "text=" + text
+    return encodedURL + "?" + "text=" + text
 }
 
 function errorHandler(error) {
