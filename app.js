@@ -1,9 +1,9 @@
-var txtInput = document.querySelector('#txt-input');
-var btnTranslate = document.querySelector('#btn-translate');
-var outputDiv = document.querySelector('#txt-output');
+const txtInput = document.querySelector('#txt-input');
+const btnTranslate = document.querySelector('#btn-translate');
+const outputDiv = document.querySelector('#txt-output');
 
-var serverURL = "https://api.funtranslations.com/translate/valyrian.json";
-var encodedURL = encodeURI(serverURL);
+const serverURL = "https://api.funtranslations.com/translate/valyrian.json";
+const encodedURL = encodeURI(serverURL);
 
 function getTranslationURL(text) {
     return encodedURL + "?" + "text=" + text
@@ -14,11 +14,11 @@ function errorHandler(error) {
 }
 
 function clickHandler() {
-    var inputText = txtInput.value;
+    const inputText = txtInput.value;
     fetch(getTranslationURL(inputText))
         .then(response => response.json())
         .then(json => {
-            var translatedText = json.contents.translated;
+            const translatedText = json.contents.translated;
             outputDiv.innerText = translatedText;
         })
         .catch(errorHandler)
